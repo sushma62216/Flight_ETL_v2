@@ -1,2 +1,1 @@
-# Ignore db_config.py because it has sensitive info like passwords
 .env
