@@ -81,11 +81,11 @@ Host: ```localhost```
 
 Port: ```5432```
 
-DB: ```airflow```
+DB: ```opensky```
 
-Username: ```airflow```
+Username: ```your_username```
 
-Password: ```airflow```
+Password: ```your_password```
 
 Check the flight_data table by running a query to confirm data ingestion.
 
