@@ -92,7 +92,7 @@ Check the flight_data table by running a query to confirm data ingestion.
 ### 5. Launch Streamlit Dashboard
 
 ```bash
-streamlit run streamlit_app.py
+streamlit run app.py
 ```
 Visit: http://localhost:8501
 
