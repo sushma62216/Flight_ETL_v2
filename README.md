@@ -45,11 +45,6 @@ The entire pipeline is containerized using Docker Compose, ensuring isolated, re
 
 ---
 
-#### To Run Streamlit:
-
-```bash
-streamlit run streamlit_app.py
----
 ## Getting Started
 
 ### Prerequisites
@@ -60,9 +55,47 @@ Ensure you have the following installed:
 - Python 3.8+
 - Git
 
-### Clone the Repository
+### 1. Clone the Repository
 
 ```bash
 git clone https://github.com/yourusername/Flight_ETL_v2.git
 cd Flight_ETL_v2
+```
+### 2. Start the Docker Containers
+```bash
+docker-compose up --build
+```
+Airflow Web UI: http://localhost:8080
+
+PostgreSQL: runs on localhost:5432
+
+### 3. Trigger the DAG
+Open Airflow UI: http://localhost:8080
+
+Trigger the DAG named flight_etl_dag
+
+
+### 4. Use DBeaver (or any other PostgreSQL client):
+
+Host: ```localhost```
+
+Port: ```5432```
+
+DB: ```airflow```
+
+Username: ```airflow```
+
+Password: ```airflow```
+
+Check the flight_data table by running a query to confirm data ingestion.
+
+### 5. Launch Streamlit Dashboard
+
+```bash
+streamlit run streamlit_app.py
+```
+Visit: http://localhost:8501
+
+You’ll see a live dashboard showing real-time flight data ingested from the OpenSky API.
+
 
