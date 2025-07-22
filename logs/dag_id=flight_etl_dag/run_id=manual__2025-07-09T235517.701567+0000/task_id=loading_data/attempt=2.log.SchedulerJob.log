@@ -1,0 +1,1 @@
+[2025-07-09T23:56:55.623+0000] {scheduler_job_runner.py:781} ERROR - Executor reports task instance <TaskInstance: flight_etl_dag.loading_data manual__2025-07-09T23:55:17.701567+00:00 [queued]> finished (failed) although the task says it's queued. (Info: None) Was the task killed externally?

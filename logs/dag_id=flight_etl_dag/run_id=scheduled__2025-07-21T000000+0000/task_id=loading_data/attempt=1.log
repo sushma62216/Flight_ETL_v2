@@ -1,0 +1,25 @@
+[2025-07-22T17:55:17.759+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: flight_etl_dag.loading_data scheduled__2025-07-21T00:00:00+00:00 [queued]>
+[2025-07-22T17:55:17.772+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: flight_etl_dag.loading_data scheduled__2025-07-21T00:00:00+00:00 [queued]>
+[2025-07-22T17:55:17.773+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 2
+[2025-07-22T17:55:17.818+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): loading_data> on 2025-07-21 00:00:00+00:00
+[2025-07-22T17:55:17.830+0000] {standard_task_runner.py:60} INFO - Started process 96 to run task
+[2025-07-22T17:55:17.839+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'flight_etl_dag', 'loading_data', 'scheduled__2025-07-21T00:00:00+00:00', '--job-id', '23', '--raw', '--subdir', 'DAGS_FOLDER/flight_etl_dag.py', '--cfg-path', '/tmp/tmp2seaj6t_']
+[2025-07-22T17:55:17.841+0000] {standard_task_runner.py:88} INFO - Job 23: Subtask loading_data
+[2025-07-22T17:55:17.960+0000] {task_command.py:423} INFO - Running <TaskInstance: flight_etl_dag.loading_data scheduled__2025-07-21T00:00:00+00:00 [running]> on host af26ca022444
+[2025-07-22T17:55:18.144+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='flight_etl_dag' AIRFLOW_CTX_TASK_ID='loading_data' AIRFLOW_CTX_EXECUTION_DATE='2025-07-21T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-07-21T00:00:00+00:00'
+[2025-07-22T17:55:18.320+0000] {logging_mixin.py:188} INFO - Data to load:
+[2025-07-22T17:55:18.340+0000] {logging_mixin.py:188} INFO -   aircraft_id flight_number origin_country  ...  position_source      time       date
+0      a5f852      RTY484    United States  ...            ADS-B  12:54:31 2025-07-22
+1      ab1644      UAL654    United States  ...            ADS-B  12:54:31 2025-07-22
+2      80162c      AXB1025           India  ...            ADS-B  12:53:31 2025-07-22
+3      aa3cbe      N759PA    United States  ...            ADS-B  12:54:30 2025-07-22
+4      39de4a      TVF3919          France  ...            ADS-B  12:54:31 2025-07-22
+
+[5 rows x 11 columns]
+[2025-07-22T17:55:18.348+0000] {logging_mixin.py:188} INFO - Airflow DB Connection: ('172.18.0.4', 'opensky', 'postgres')
+[2025-07-22T17:55:18.359+0000] {logging_mixin.py:188} INFO - Tables created successfully.
+[2025-07-22T17:55:43.580+0000] {logging_mixin.py:188} INFO - Data Loaded successfully !
+[2025-07-22T17:55:43.588+0000] {python.py:201} INFO - Done. Returned value was: None
+[2025-07-22T17:55:43.605+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=flight_etl_dag, task_id=loading_data, execution_date=20250721T000000, start_date=20250722T175517, end_date=20250722T175543
+[2025-07-22T17:55:43.664+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-07-22T17:55:43.710+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

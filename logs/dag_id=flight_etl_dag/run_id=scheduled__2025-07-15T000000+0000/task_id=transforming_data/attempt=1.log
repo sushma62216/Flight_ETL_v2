@@ -1,0 +1,26 @@
+[2025-07-22T17:55:13.397+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: flight_etl_dag.transforming_data scheduled__2025-07-15T00:00:00+00:00 [queued]>
+[2025-07-22T17:55:13.423+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: flight_etl_dag.transforming_data scheduled__2025-07-15T00:00:00+00:00 [queued]>
+[2025-07-22T17:55:13.425+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 2
+[2025-07-22T17:55:13.461+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): transforming_data> on 2025-07-15 00:00:00+00:00
+[2025-07-22T17:55:13.475+0000] {standard_task_runner.py:60} INFO - Started process 79 to run task
+[2025-07-22T17:55:13.486+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'flight_etl_dag', 'transforming_data', 'scheduled__2025-07-15T00:00:00+00:00', '--job-id', '21', '--raw', '--subdir', 'DAGS_FOLDER/flight_etl_dag.py', '--cfg-path', '/tmp/tmpj3rnkuwc']
+[2025-07-22T17:55:13.489+0000] {standard_task_runner.py:88} INFO - Job 21: Subtask transforming_data
+[2025-07-22T17:55:13.655+0000] {task_command.py:423} INFO - Running <TaskInstance: flight_etl_dag.transforming_data scheduled__2025-07-15T00:00:00+00:00 [running]> on host af26ca022444
+[2025-07-22T17:55:13.920+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='flight_etl_dag' AIRFLOW_CTX_TASK_ID='transforming_data' AIRFLOW_CTX_EXECUTION_DATE='2025-07-15T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-07-15T00:00:00+00:00'
+[2025-07-22T17:55:14.623+0000] {python.py:201} INFO - Done. Returned value was:       aircraft_id flight_number  ...      time        date
+0          a5f852      RTY484    ...  12:54:31  2025-07-22
+1          ab1644      UAL654    ...  12:54:31  2025-07-22
+2          80162c      AXB1025   ...  12:53:31  2025-07-22
+3          aa3cbe      N759PA    ...  12:54:30  2025-07-22
+4          39de4a      TVF3919   ...  12:54:31  2025-07-22
+...           ...           ...  ...       ...         ...
+10213      aa7833      DAL1283   ...  12:52:34  2025-07-22
+10214      a8183d      WMU62     ...  12:54:31  2025-07-22
+10215      a6c516      VJA535    ...  12:53:29  2025-07-22
+10216      a6d83c      DAL464    ...  12:54:31  2025-07-22
+10217      ac90e8      N909DB    ...  12:54:31  2025-07-22
+
+[10127 rows x 11 columns]
+[2025-07-22T17:55:14.892+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=flight_etl_dag, task_id=transforming_data, execution_date=20250715T000000, start_date=20250722T175513, end_date=20250722T175514
+[2025-07-22T17:55:14.948+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-07-22T17:55:14.992+0000] {taskinstance.py:3280} INFO - 1 downstream tasks scheduled from follow-on schedule check

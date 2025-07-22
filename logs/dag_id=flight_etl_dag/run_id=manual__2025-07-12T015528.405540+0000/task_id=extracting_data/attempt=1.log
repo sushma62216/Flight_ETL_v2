@@ -1,0 +1,24 @@
+[2025-07-12T01:55:32.242+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: flight_etl_dag.extracting_data manual__2025-07-12T01:55:28.405540+00:00 [queued]>
+[2025-07-12T01:55:32.259+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: flight_etl_dag.extracting_data manual__2025-07-12T01:55:28.405540+00:00 [queued]>
+[2025-07-12T01:55:32.263+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 2
+[2025-07-12T01:55:32.291+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): extracting_data> on 2025-07-12 01:55:28.405540+00:00
+[2025-07-12T01:55:32.304+0000] {standard_task_runner.py:60} INFO - Started process 88 to run task
+[2025-07-12T01:55:32.309+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'flight_etl_dag', 'extracting_data', 'manual__2025-07-12T01:55:28.405540+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/flight_etl_dag.py', '--cfg-path', '/tmp/tmplj0u78kp']
+[2025-07-12T01:55:32.310+0000] {standard_task_runner.py:88} INFO - Job 3: Subtask extracting_data
+[2025-07-12T01:55:32.421+0000] {task_command.py:423} INFO - Running <TaskInstance: flight_etl_dag.extracting_data manual__2025-07-12T01:55:28.405540+00:00 [running]> on host b97efba67dd5
+[2025-07-12T01:55:32.543+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='flight_etl_dag' AIRFLOW_CTX_TASK_ID='extracting_data' AIRFLOW_CTX_EXECUTION_DATE='2025-07-12T01:55:28.405540+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-07-12T01:55:28.405540+00:00'
+[2025-07-12T01:55:33.410+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 199, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 216, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/extract.py", line 13, in extract
+    raise ValueError(f"OpenSky API returned {response.status_code}")
+ValueError: OpenSky API returned 429
+[2025-07-12T01:55:33.430+0000] {taskinstance.py:1138} INFO - Marking task as UP_FOR_RETRY. dag_id=flight_etl_dag, task_id=extracting_data, execution_date=20250712T015528, start_date=20250712T015532, end_date=20250712T015533
+[2025-07-12T01:55:33.451+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 3 for task extracting_data (OpenSky API returned 429; 88)
+[2025-07-12T01:55:33.489+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2025-07-12T01:55:33.521+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check
