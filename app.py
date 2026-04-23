@@ -70,9 +70,15 @@ with chart_col1:
         .rename_axis("country")
         .reset_index(name="flights")
     )
-    st.bar_chart(top_countries.set_index("country"))
+    if top_countries.empty:
+        st.info("No country data available for current filters.")
+    else:
+        st.bar_chart(top_countries.set_index("country"))
 
 with chart_col2:
     st.subheader("Velocity vs Altitude")
     scatter_df = filtered_df[["velocity", "geo_altitude", "position_source"]].dropna()
-    st.scatter_chart(scatter_df, x="velocity", y="geo_altitude", color="position_source")
+    if scatter_df.empty:
+        st.info("No data available for current filters.")
+    else:
+        st.scatter_chart(scatter_df, x="velocity", y="geo_altitude", color="position_source")
