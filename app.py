@@ -57,3 +57,22 @@ col3.metric(
 col4.metric("Countries", filtered_df["origin_country"].nunique())
 
 st.divider()
+
+# ── Charts ───────────────────────────────────────────────────────────────────
+chart_col1, chart_col2 = st.columns(2)
+
+with chart_col1:
+    st.subheader("Top 15 Origin Countries")
+    top_countries = (
+        filtered_df["origin_country"]
+        .value_counts()
+        .head(15)
+        .rename_axis("country")
+        .reset_index(name="flights")
+    )
+    st.bar_chart(top_countries.set_index("country"))
+
+with chart_col2:
+    st.subheader("Velocity vs Altitude")
+    scatter_df = filtered_df[["velocity", "geo_altitude", "position_source"]].dropna()
+    st.scatter_chart(scatter_df, x="velocity", y="geo_altitude", color="position_source")
