@@ -45,6 +45,10 @@ The entire pipeline is containerized using Docker Compose, ensuring isolated, re
 6. **Streamlit Visualization**
    The project features a **Streamlit app** that reads from PostgreSQL and displays recent flight data in an interactive dashboard.
 
+### Dashboard Output
+
+![Dashboard Output](dashboard_output.png)
+
 ---
 
 ## Getting Started
