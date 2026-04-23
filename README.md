@@ -6,6 +6,8 @@ This project demonstrates a real-time ETL pipeline that ingests flight data from
 
 The entire pipeline is containerized using Docker Compose, ensuring isolated, repeatable, and portable execution across environments. DBeaver is used to inspect and query the database visually.
 
+![Flight Architecture](flight_architecture.png)
+
 ---
 
 ## Technologies & Skills Demonstrated
