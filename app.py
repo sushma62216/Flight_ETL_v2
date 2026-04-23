@@ -8,7 +8,11 @@ st.set_page_config(page_title="Flight Tracker", layout="wide")
 st.title("✈️ Live Flight Activity Dashboard")
 
 # ── Load data ────────────────────────────────────────────────────────────────
-df = load_data_from_db()
+@st.cache_data(ttl=60)
+def load_data():
+    return load_data_from_db()
+
+df = load_data()
 
 if df.empty:
     st.warning("No flight data available.")
