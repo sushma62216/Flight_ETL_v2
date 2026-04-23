@@ -42,3 +42,18 @@ filtered_df = df[
 if filtered_df.empty:
     st.warning("No flights match the selected filters.")
     st.stop()
+
+# ── KPI row ──────────────────────────────────────────────────────────────────
+col1, col2, col3, col4 = st.columns(4)
+col1.metric("Total Flights", len(filtered_df))
+col2.metric(
+    "Avg Speed (m/s)",
+    f"{filtered_df['velocity'].mean():.1f}" if filtered_df['velocity'].notna().any() else "—"
+)
+col3.metric(
+    "Avg Altitude (m)",
+    f"{filtered_df['geo_altitude'].mean():.0f}" if filtered_df['geo_altitude'].notna().any() else "—"
+)
+col4.metric("Countries", filtered_df["origin_country"].nunique())
+
+st.divider()
